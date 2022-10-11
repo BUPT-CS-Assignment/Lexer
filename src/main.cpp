@@ -27,7 +27,7 @@ int main(int argc,char** argv){
     // statistic
     int counter[9];
     sc.typeStatistic(counter);
-    ofs << "\n[statistic]\nrow: " << row << "\nchar: " << sc.totalChar() << std::endl; 
+    ofs << "\n[statistic]\nrow: " << sc.totalRow() << "\nchar: " << sc.totalChar() << std::endl; 
     
     ofs << "\n[types]" << std::endl;
     for(int i = 1; i < 8; i++){
@@ -36,7 +36,7 @@ int main(int argc,char** argv){
 
     // cout
     std::cout << BOLDWHITE << path << ": " BOLDGREEN "statistic" BOLDWHITE ":" RESET << std::endl;
-    std::cout << "   [row]   " << BOLDWHITE << row << RESET << std::endl;
+    std::cout << "   [row]   " << BOLDWHITE << sc.totalRow() << RESET << std::endl;
     std::cout << "   [char]  " << BOLDWHITE << sc.totalChar() << RESET << std::endl;
     std::cout << BOLDWHITE << path <<": " BOLDGREEN "types" BOLDWHITE ":" RESET << std::endl;
     std::cout << "   [" << __type_str[1] << "]   " << (counter[1] == 0 ? BOLDGREEN : BOLDRED) << counter[1] << RESET << std::endl;

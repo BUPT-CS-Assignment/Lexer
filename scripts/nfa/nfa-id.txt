@@ -1,0 +1,17 @@
+#states
+start
+id
+#initial
+start
+#accepting
+id
+#alphabet
+letter
+_
+num0-9
+#transitions
+start:letter>id
+start:_>id
+id:letter>id
+id:num0-9>id
+id:_>id

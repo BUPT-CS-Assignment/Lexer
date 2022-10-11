@@ -1,95 +1,155 @@
 :scripts/origin.c
 
 [lexical analysis]
-1	| Key	 	 struct
-	| Tag	 	 test
-2	| Lim	 	 {
-3	| Key	 	 double
-	| Tag	 	 pt
-	| Lim	 	 ;
-4	| Lim	 	 }
-	| Lim	 	 ;
-7	| Key	 	 int
-	| Tag	 	 main
-	| Lim	 	 (
-	| Lim	 	 )
-	| Lim	 	 {
-8	| Key	 	 struct
-	| Tag	 	 test
-	| Opt	 	 *
-	| Tag	 	 t
-	| Opt	 	 =
-	| Tag	 	 malloc
-	| Lim	 	 (
-	| Key	 	 sizeof
-	| Lim	 	 (
-	| Key	 	 struct
-	| Tag	 	 test
-	| Lim	 	 )
-	| Lim	 	 )
-	| Lim	 	 ;
-9	| Key	 	 struct
-	| Tag	 	 test
-	| Tag	 	 t2
-	| Lim	 	 ;
-10	| Tag	 	 t
-	| Opt	 	 ->
-	| Tag	 	 pt
-	| Opt	 	 =
-	| Num	 	 .1e64
-	| Lim	 	 ;
-11	| Tag	 	 t2
-	| Opt	 	 .
-	| Tag	 	 pt
-	| Opt	 	 =
-	| Num	 	 1.2
-	| Lim	 	 ;
-12	| Key	 	 int
-	| Tag	 	 _a0
-	| Opt	 	 =
-	| Num	 	 10
-	| Lim	 	 ;
-13	| Tag	 	 _a0
-	| Opt	 	 >>=
-	| Num	 	 2
-	| Lim	 	 ;
-14	| Tag	 	 printf
-	| Lim	 	 (
-	| Str	 	 "print test \"\n"
-	| Lim	 	 )
-	| Lim	 	 ;
-15	| Key	 	 char
-	| Tag	 	 str
-	| Lim	 	 [
-	| Lim	 	 ]
-	| Opt	 	 =
-	| Str	 	 "string        test    "
-17	| Lim	 	 ;
-23	| Err	!	 #
-	| Tag	 	 a
-	| Err	!	 $
-	| Num	 	 23
-24	| Key	 	 char
-	| Tag	 	 str2
-	| Lim	 	 [
-	| Lim	 	 ]
-	| Opt	 	 =
-	| Str	 	 "no block \"
-25	| Tag	 	 test
-26	| Key	 	 return
-	| Num	 	 0
-	| Lim	 	 ;
-27	| Lim	 	 }
+2	|  KeyWords 	 	 struct
+	| Identifier	 	 test
+3	|   Limits  	 	 {
+4	|  KeyWords 	 	 double
+	| Identifier	 	 pt
+	|   Limits  	 	 ;
+5	|   Limits  	 	 }
+	|   Limits  	 	 ;
+7	|  KeyWords 	 	 int
+	| Identifier	 	 main
+	|   Limits  	 	 (
+	|   Limits  	 	 )
+	|   Limits  	 	 {
+14	|  KeyWords 	 	 int
+	| Identifier	 	 _a0
+	|   Limits  	 	 ,
+	| Identifier	 	 b
+	|   Limits  	 	 ;
+16	|  KeyWords 	 	 struct
+	| Identifier	 	 test
+	|  Operator 	 	 *
+	| Identifier	 	 t
+	|  Operator 	 	 =
+	| Identifier	 	 malloc
+	|   Limits  	 	 (
+	|  KeyWords 	 	 sizeof
+	|   Limits  	 	 (
+	|  KeyWords 	 	 struct
+	| Identifier	 	 test
+	|   Limits  	 	 )
+	|   Limits  	 	 )
+	|   Limits  	 	 ;
+17	| Identifier	 	 t
+	|  Operator 	 	 ->
+	| Identifier	 	 pt
+	|  Operator 	 	 =
+	|   Number  	 	 .1e64
+	|   Limits  	 	 ;
+18	|   Limits  	 	 (
+	|  Operator 	 	 *
+	| Identifier	 	 t
+	|   Limits  	 	 )
+	|  Operator 	 	 .
+	| Identifier	 	 pt
+	|  Operator 	 	 =
+	|   Number  	 	 0.2
+	|   Limits  	 	 ;
+19	| Identifier	 	 _a0
+	|  Operator 	 	 >>=
+	|   Number  	 	 2
+	|   Limits  	 	 ;
+21	|  KeyWords 	 	 int
+	| Identifier	 	 a_
+	|  Operator 	 	 =
+	|   Number  	 	 10uL
+	|   Limits  	 	 ,
+	| Identifier	 	 b_
+	|  Operator 	 	 =
+	|   Number  	 	 100uL
+	|   Limits  	 	 ;
+23	|  KeyWords 	 	 int
+	| Identifier	 	 c_
+	|  Operator 	 	 =
+	|   Number  	 	 0x1e8
+	|   Limits  	 	 ,
+	| Identifier	 	 d_
+	|  Operator 	 	 =
+	|   Number  	 	 070
+	|   Limits  	 	 ,
+	| Identifier	 	 e_
+	|  Operator 	 	 =
+	|   Number  	 	 0b0011
+	|   Limits  	 	 ;
+24	|  KeyWords 	 	 float
+	| Identifier	 	 f_
+	|  Operator 	 	 =
+	|   Number  	 	 1.3f
+	|   Limits  	 	 ,
+	| Identifier	 	 g_
+	|  Operator 	 	 =
+	|   Number  	 	 1.1l
+	|   Limits  	 	 ;
+26	| Identifier	 	 printf
+	|   Limits  	 	 (
+	|   String  	 	 "print test \"\n"
+	|   Limits  	 	 )
+	|   Limits  	 	 ;
+27	|  KeyWords 	 	 char
+	| Identifier	 	 str
+	|   Limits  	 	 [
+	|   Limits  	 	 ]
+	|  Operator 	 	 =
+	|   String  	 	 "string \\t        test    "
+29	|   Limits  	 	 ;
+31	|  KeyWords 	 	 int
+	| Identifier	 	 a
+	|   Errors  	!	 $
+	|   Number  	 	 23
+	|  Operator 	 	 =
+	|   Errors  	!	 #
+	|   Number  	 	 4
+	|   Limits  	 	 ;
+32	|  KeyWords 	 	 float
+	| Identifier	 	 b
+	|  Operator 	 	 =
+	|   Number  	 	 1.2
+	| Identifier	 	 UL
+	|   Limits  	 	 ,
+	| Identifier	 	 f
+	|  Operator 	 	 =
+	|   Number  	 	 1l
+	| Identifier	 	 f
+	|   Limits  	 	 ;
+33	|  KeyWords 	 	 int
+	| Identifier	 	 c
+	|  Operator 	 	 =
+	|   Number  	 	 0x1
+	|   Number  	 	 .4
+	|   Limits  	 	 ,
+	| Identifier	 	 d
+	|  Operator 	 	 =
+	|   Number  	 	 07
+	|   Number  	 	 8
+	|   Limits  	 	 ,
+	| Identifier	 	 e
+	|  Operator 	 	 =
+	|   Number  	 	 0b1
+	|   Number  	 	 3
+	|   Limits  	 	 ;
+34	|  KeyWords 	 	 char
+	| Identifier	 	 str2
+	|   Limits  	 	 [
+	|   Limits  	 	 ]
+	|  Operator 	 	 =
+	|   Errors  	!	 "no end test \"
+36	|  KeyWords 	 	 return
+	|   Number  	 	 0
+	|   Limits  	 	 ;
+37	|   Limits  	 	 }
 
 [statistic]
-row: 27
-char: 317
+row: 37
+char: 471
 
 [types]
-Err: 3
-Key: 11
-Tag: 20
-Num: 6
-Opt: 10
-Lim: 27
-Str: 3
+  Errors  : 3
+ KeyWords : 16
+Identifier: 32
+  Number  : 21
+ Operator : 23
+  Limits  : 42
+  String  : 2

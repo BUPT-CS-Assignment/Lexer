@@ -4,9 +4,9 @@
 #include "basic.h"
 
 const static std::string __type_str[] ={
-    "End","Err",
-    "Key","Tag","Num","Opt","Lim",
-    "Str","Com"
+    "End","  Errors  ",
+    " KeyWords ","Identifier","  Number  "," Operator ","  Limits  ",
+    "  String  "," Comments "
 };
 
 class Symbol
@@ -32,7 +32,7 @@ private:
     
 public:
     Indicator indicator;    // 指示器
-    // 清空
+    // 清空内容
     void clear(){
         memset(&_content,0,__buffer_length);
         _ptr_content = 0;
@@ -40,7 +40,6 @@ public:
         indicator.setCol(0);
         _attr = Type::END;
     }
-    
     // 添加字符
     void append(char ch){
         if(_ptr_content + 1 >= __buffer_length)
@@ -50,7 +49,6 @@ public:
         }
         _content[_ptr_content ++] = ch;
     }
-
     // 字符回退
     char rollBack(){
         if(_ptr_content <= 0)
@@ -59,38 +57,33 @@ public:
         _content[--_ptr_content] = 0;
         return ch;
     }
+    // 获取字符内容
     std::string content(){
         return std::string(_content);
     }
-
     // 获取属性
     Type attr(){
         return _attr;
     }
-
     // 设置属性
     void setAttr(Type t){
         _attr = t;
     }
-
     // 达到末尾
     Symbol& end(){
         _attr = Type::END;
         return *this;
     }
-
     // 错误
     Symbol& error(){
         _attr = Type::ERROR;
         return *this;
     }
-
-    // 字符串化
+    // 含属性 字符串化
     std::string toString(){
         std::string temp = _attr == Type::ERROR ? "!" : " ";
         return __type_str[(int)_attr] + "\t" + temp + "\t " + std::string(_content);
     }
-
     // 重载 []
     char operator[](int pos){
         if(pos >= 0 && pos < _ptr_content)

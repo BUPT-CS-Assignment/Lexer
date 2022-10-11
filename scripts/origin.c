@@ -3,25 +3,34 @@ struct  test
     double pt;
 };
 
-
 int main(){
-    struct test* t = malloc(sizeof(struct test));
-    struct test t2;
-    t -> pt = .1e64;
-    t2.pt = 1.2;
-    int _a0 = 10;
+    // short comment test
+    /* short block comment test */
+    /*
+        long block comment test *\/ escape test
+    */
+    //id test
+    int _a0, b;                                     
+    //operator test
+    struct test* t = malloc(sizeof(struct test));   
+    t->pt = .1e64;
+    (*t).pt = 0.2;
     _a0 >>= 2;
-    printf("print test \"\n");     // short comment test
-    char str[] = "string\
+    // suffix test
+    int a_ = 10uL, b_ = 100uL;  
+    // num type test
+    int c_ = 0x1e8, d_=070, e_ = 0b0011;
+    float f_ = 1.3f, g_ = 1.1l;
+    //string test
+    printf("print test \"\n");                  
+    char str[] = "string \\t\
         test\
     ";
+    //error test
+    int a$23 = #4;
+    float b = 1.2UL, f=1lf;
+    int c = 0x1.4, d=078, e=0b13;
+    char str2[] = "no end test \"
 
-    /* 
-        long comment test *\/ *end-test
-    */
-
-    #a$23    // invalid tag test
-    char str2[] = "no block \"
-    test
     return 0;
 }
